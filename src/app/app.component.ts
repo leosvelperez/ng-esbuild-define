@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 
+declare const SOME_ENV_VAR: string;
+
 @Component({
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
@@ -10,5 +12,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ng-esbuild-define';
+  title = `Welcome to ${
+    typeof SOME_ENV_VAR !== 'undefined' ? SOME_ENV_VAR : 'ng-esbuild-define'
+  }!`;
 }
